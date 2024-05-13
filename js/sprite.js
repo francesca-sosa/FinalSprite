@@ -4,6 +4,14 @@ class Sprite {
     this.sprite_json = sprite_json;
     this.x = x;
     this.y = y;
+
+
+    //for boids -> doesn't work -> wanted to keep in the same class but probably should've made a new class
+//    this.separation = 0;
+//    this.cohesion = 0;
+//    this.alignment = 0;
+
+
     this.root_e = "TenderBud";
 
     this.cur_frame = 0;
@@ -155,10 +163,24 @@ class Sprite {
     this.y = this.y + this.y_v;
   }
 
+
+  //for boids -> doesn't work
+//  get_random(min, max) {
+//  return math.random() * (max - min) + min;
+//  }
+
+
   random_direction() {
     const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
     const randomIndex = Math.floor(Math.random() * directions.length);
     const randomDirection = directions[randomIndex];
+
+
+    //for boids -> doesn't work
+//    this.separation = get_random(5, 30);
+//    this.cohesion = get_random(5, 20);
+//    this.alignment = get_random(5, 10);
+
 
     switch (randomDirection) {
       case "N":

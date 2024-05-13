@@ -14,7 +14,7 @@
 
     <script>
       const canvas = document.querySelector("canvas");
-      const sprites_to_draw = new Array(2);
+      const sprites_to_draw = new Array(3);
       var draw_loop_timeout;
       var img = new Image();
 
@@ -31,6 +31,12 @@
         randomDirection =
           directions[Math.floor(Math.random() * directions.length)];
         sprites_to_draw[1].push(new Sprite(data, 1900, 600, randomDirection));
+
+        //was going to add a 3rd for boids -> removed because the 3rd wouldn't sense collision
+        //randomDirection =
+          //directions[Math.floor(Math.random() * directions.length)];
+        //sprites_to_draw[1].push(new Sprite(data, 1000, 600, randomDirection));
+
       });
 
       $(document).ready(function () {
@@ -80,6 +86,7 @@
           sprites_to_draw[1][0].random_direction();
           sprites_to_draw[1][1].random_direction();
 
+          //display ouch! in the middle of the screen when they collide
           context.font = '60px Arial';
           context.fillStyle = 'blue';
           context.fillText('Ouch!', canvas.width / 2, canvas.height / 2);
